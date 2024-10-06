@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.1
   just_audio: ^0.9.39
   provider: ^6.1.2
   simple_ripple_animation: ^0.0.9
@@ -25,5 +26,6 @@ flutter:
     - assets/images/
     - assets/images/dice/
     - assets/images/crown/
+    - assets/images/icon/
     - assets/images/player/
     - assets/sounds/

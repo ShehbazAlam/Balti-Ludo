@@ -38,6 +38,7 @@ class _RootState extends State<Root> {
         precacheImage(const AssetImage("assets/images/crown/1st.png"), context),
         precacheImage(const AssetImage("assets/images/crown/2nd.png"), context),
         precacheImage(const AssetImage("assets/images/crown/3rd.png"), context),
+        precacheImage(const AssetImage("assets/images/icon/icon.png"), context),
       ]);
     });
     super.initState();

@@ -21,72 +21,79 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Balti Ludo'),),
+      appBar: AppBar(title: const Row(
+        children: [
+          Image(image: AssetImage("assets/images/icon/icon.png"), width: 50, height: 50, fit: BoxFit.contain,),
+          Text('Balti Ludo')
+        ],
+      ),),
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        const SizedBox(width: 50, height: 50, child: Image(image: AssetImage('assets/images/player/p1.png'), fit: BoxFit.contain,)),
-                        Consumer<LudoProvider>(
-                          builder: (context, value, child) {
-                            return value.currentPlayer.type == LudoPlayerType.green ? const SizedBox(width: 50, height: 50, child: DiceWidget(),) : const SizedBox(width: 50, height: 50,);
-                          },
-                          )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        
-                        Consumer<LudoProvider>(
-                          builder: (context, value, child) {
-                            return value.currentPlayer.type == LudoPlayerType.yellow ? const SizedBox(width: 50, height: 50, child: DiceWidget(),) : const SizedBox(width: 50, height: 50,);
-                          },
-                          ),
-                          const SizedBox(width: 50, height: 50, child: Image(image: AssetImage('assets/images/player/p2.png'), fit: BoxFit.contain,)),
-                      ],
-                    )
-                  ],),
-              ),
-              const BoardWidget(),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        const SizedBox(width: 50, height: 50, child: Image(image: AssetImage('assets/images/player/p4.png'), fit: BoxFit.contain,)),
-                        Consumer<LudoProvider>(
-                          builder: (context, value, child) {
-                            return value.currentPlayer.type == LudoPlayerType.red ? const SizedBox(width: 50, height: 50, child: DiceWidget(),) : const SizedBox(width: 50, height: 50,);
-                          },
-                          )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        
-                        Consumer<LudoProvider>(
-                          builder: (context, value, child) {
-                            return value.currentPlayer.type == LudoPlayerType.blue ? const SizedBox(width: 50, height: 50, child: DiceWidget(),) : const SizedBox(width: 50, height: 50,);
-                          },
-                          ),
-                          const SizedBox(width: 50, height: 50, child: Image(image: AssetImage('assets/images/player/p3.png'), fit: BoxFit.contain,)),
-                      ],
-                    )
-                  ],),
-              ),
-            ],
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          const SizedBox(width: 50, height: 50, child: Image(image: AssetImage('assets/images/player/p1.png'), fit: BoxFit.contain,)),
+                          Consumer<LudoProvider>(
+                            builder: (context, value, child) {
+                              return value.currentPlayer.type == LudoPlayerType.green ? const SizedBox(width: 50, height: 50, child: DiceWidget(),) : const SizedBox(width: 50, height: 50,);
+                            },
+                            )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          
+                          Consumer<LudoProvider>(
+                            builder: (context, value, child) {
+                              return value.currentPlayer.type == LudoPlayerType.yellow ? const SizedBox(width: 50, height: 50, child: DiceWidget(),) : const SizedBox(width: 50, height: 50,);
+                            },
+                            ),
+                            const SizedBox(width: 50, height: 50, child: Image(image: AssetImage('assets/images/player/p2.png'), fit: BoxFit.contain,)),
+                        ],
+                      )
+                    ],),
+                ),
+                const BoardWidget(),
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          const SizedBox(width: 50, height: 50, child: Image(image: AssetImage('assets/images/player/p4.png'), fit: BoxFit.contain,)),
+                          Consumer<LudoProvider>(
+                            builder: (context, value, child) {
+                              return value.currentPlayer.type == LudoPlayerType.red ? const SizedBox(width: 50, height: 50, child: DiceWidget(),) : const SizedBox(width: 50, height: 50,);
+                            },
+                            )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          
+                          Consumer<LudoProvider>(
+                            builder: (context, value, child) {
+                              return value.currentPlayer.type == LudoPlayerType.blue ? const SizedBox(width: 50, height: 50, child: DiceWidget(),) : const SizedBox(width: 50, height: 50,);
+                            },
+                            ),
+                            const SizedBox(width: 50, height: 50, child: Image(image: AssetImage('assets/images/player/p3.png'), fit: BoxFit.contain,)),
+                        ],
+                      )
+                    ],),
+                ),
+              ],
+            ),
           ),
           Consumer<LudoProvider>(
             builder: (context, value, child) => value.winners.length == 3
